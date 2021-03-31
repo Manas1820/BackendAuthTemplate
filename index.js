@@ -14,12 +14,14 @@ const authRoute = require('./routes/auth');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Routes Middleware
 app.use('/api/user',authRoute);
 
 
 
 // Connect to database
-mongoose.connect(process.env.MONGO_CONNECT,{ useNewUrlParser: true ,useUnifiedTopology: true},()=>{
+mongoose.connect(process.env.LINK_MONGODB,{ useNewUrlParser: true ,useUnifiedTopology: true},()=>{
     console.log("MongoDB Connected")
 });
 
